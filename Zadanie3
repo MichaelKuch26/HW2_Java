@@ -1,0 +1,40 @@
+package org.example.seminar2.hw3;
+
+import jdk.internal.icu.lang.UCharacterDirection;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ * Дан массив целых чисел.
+ * Заменить отрицательные элементы на сумму индексов
+ * двузначных элементов массива.
+ */
+
+public class Zadanie3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Задайте длину массива: ");
+        int n = scanner.nextInt();
+        System.out.println("Целые числа: ");
+        int [] mass = new int[n];
+        for (int i = 0; i < n; i++) {
+            mass[i] = scanner.nextInt();
+        }
+        System.out.println("Наш массив: "+Arrays.toString(mass));
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            if (mass[i]>9){
+                sum += i;
+            }
+        }
+        for (int j = 0; j < n; j++) {
+            if (mass[j]<0){
+                mass[j]=sum;
+                }
+        }
+        scanner.close();
+        System.out.println(sum);
+        System.out.println("Наш новый массив: "+Arrays.toString(mass));
+    }
+}
